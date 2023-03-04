@@ -2,6 +2,21 @@
 
 dmscripts_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+
+# verify doas is installed, else display a notification and exit
+if ! command -v doas &> /dev/null
+then
+    notify-send "doas is not installed, please install it and try again"
+    exit
+fi
+
+# verify dmenu is installed, else display a notification and exit
+if ! command -v dmenu &> /dev/null
+then
+    notify-send "dmenu is not installed, please install it and try again"
+    exit
+fi
+
 echo $dmscripts_dir
 
 # Choose a script

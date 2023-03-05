@@ -19,7 +19,8 @@ fi
 
 echo $dmscripts_dir
 
-chosen=$(find $dmscripts_dir/scripts/ -type f | sed "s|$dmscripts_dir/scripts/||g" | sed "s|.sh||g" | dmenu)
+chosen_one=$(find $dmscripts_dir/scripts/ -type f | sed "s|$dmscripts_dir/scripts/||g" | sed "s|.sh||g" | dmenu)
+
 
 if [ -z "$chosen_one" ]; then
     exit 0

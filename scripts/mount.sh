@@ -8,6 +8,6 @@ fi
 
 mountpoint=$(mktemp -d)
 
-doas mount /dev/$disk $mountpoint
+sudo mount /dev/$disk $mountpoint
 alacritty --working-directory $mountpoint
-doas umount $mountpoint || notify-send "Unmount failed on term exit, remember to unmount disk manually"
+sudo umount $mountpoint || notify-send "Unmount failed on term exit, remember to unmount disk manually"

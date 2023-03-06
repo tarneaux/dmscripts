@@ -9,5 +9,4 @@ To install them:
 
 ## Troubleshooting
 
-If you run into any issues:
-- The script you are running might be using doas (a better alternative to sudo) and so require its passwordless config. Enable passwordless doas in the config file to be able to use the script.
+If you run into any issues, it might be because running sudo requires a password. Either modify the scripts to ask for the password, or configure sudo with NOPASSWD.

@@ -12,14 +12,18 @@ fi
 
 echo $dmscripts_dir
 
-chosen_one=$(find $dmscripts_dir/scripts/ -type f | sed "s|$dmscripts_dir/scripts/||g" | sed "s|.sh||g" | dmenu)
+cd $dmscripts_dir/scripts
+
+chosen_one=$(find -type f | sed "s/\.\///g" | sed "s/\.sh//g" | dmenu -p "Choose a script to run:")
 
 
 if [ -z "$chosen_one" ]; then
     exit 0
 fi
 
-script_path=$dmscripts_dir/scripts/$chosen_one.sh
+script_path=$chosen_one.sh
 
 # Execute the script
 bash $script_path
+
+cd -

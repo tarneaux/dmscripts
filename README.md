@@ -6,6 +6,10 @@ To install them:
 - Clone this repo (`git clone https://github.com/tarneaux/dmscripts`)
 - Map some key (like super+d) to run this script in your window manager, desktop environment, etc.
 
+## Dependencies
+
+For `yt` script: yt-dlp, mpv, ytfzf
+
 
 ## Troubleshooting
 

@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/sh
 
 disk=$(lsblk --noheadings --output NAME,FSTYPE --raw | grep -E "\w+\s+\w+" | cut -d " " -f 1 | dmenu -i -p "Disk to mount: ")
 
@@ -8,6 +8,4 @@ fi
 
 mountpoint=$(mktemp -d)
 
-sudo mount /dev/$disk $mountpoint
-alacritty --working-directory $mountpoint
-sudo umount $mountpoint || notify-send "Unmount failed on term exit, remember to unmount disk manually"
+alacritty -e sh -c "sudo mount /dev/$disk $mountpoint ; cd $mountpoint ; $SHELL ; cd ~ ; sudo umount $mountpoint || sleep 10" &
